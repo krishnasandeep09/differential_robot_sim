@@ -32,7 +32,7 @@ Clone the repository into your workspace's src folder and then run
     (1) cd /your_ws
     (2) catkin_make
 
-Install teleop-twist-keyboard and slam-gmapping packages to use keyboard operation and LiDAR SLAM respectively. The following commands can be used to install the packages. Replace <distro> with your ros distro name
+Install teleop-twist-keyboard and slam-gmapping packages to use keyboard operation and LiDAR SLAM respectively. The following commands can be used to install the packages. Replace distro with your ros distro name
 
     sudo apt-get install ros-<distro>-teleop-twist-keyboard
     sudo apt-get install ros-<distro>-slam-gmapping
