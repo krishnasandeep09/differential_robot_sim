@@ -1,0 +1,13 @@
+<!-- -->
+<launch>
+  <include file="$(find my_robot)/launch/gazebo.launch" />
+
+  <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+    <remap from="scan" to="laser/scan" />
+  </node>
+
+  <node name="navigator" pkg="my_robot" type="navigator_node">
+    <rosparam command="load" file="$(find my_robot)/config/navigation.yaml" />
+  </node>
+
+</launch>

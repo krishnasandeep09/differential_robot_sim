@@ -1,0 +1,11 @@
+<!-- -->
+<launch>
+  <include file="$(find my_robot)/launch/gazebo.launch" />
+
+  <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+      <remap from="scan" to="laser/scan" />
+  </node>
+
+  <node name="explorer" pkg="my_robot" type="explorer_node" />
+
+</launch>

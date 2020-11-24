@@ -1,0 +1,8 @@
+<!-- -->
+<launch>
+
+  <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+      <remap from="scan" to="laser/scan" />
+  </node>
+
+</launch>
