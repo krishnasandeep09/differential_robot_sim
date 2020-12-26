@@ -1,5 +1,5 @@
 goal_x: 25.0 #goal position in odom frame
-goal_y: 5.0
+goal_y: -7.0
 dist_threshold: 3.0 #Distance threshold at which the robot would either turn away or stop
 goal_threshold: 0.8 #If goal is within this distance, it is assumed reached
 heading_tolerance: 0.052
