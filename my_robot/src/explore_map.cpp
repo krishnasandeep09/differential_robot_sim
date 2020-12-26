@@ -66,6 +66,7 @@ int main(int argc, char** argv)
     ros::Rate loop_rate(10.0);
 
     double dist_threshold = 3.0; //Distance threshold at which the robot would either turn away or stop
+    bool is_random_turn = false; //boolean to indicate if the random turn is activated
 
     geometry_msgs::Twist twist_msg;
 
@@ -149,12 +150,16 @@ int main(int argc, char** argv)
             {
                 linear_vel = 0.0;
                 angular_vel = -0.5;
+		    
+		is_random_turn = true;
             }
 
             else if(left_dist > dist_threshold)
             {
                 linear_vel = 0.0;
                 angular_vel = 0.5;
+		    
+		is_random_turn = true;
             }
         }
 
@@ -164,6 +169,13 @@ int main(int argc, char** argv)
         twist_msg.linear.x = linear_vel;
         twist_msg.angular.z = angular_vel;
         twist_pub.publish(twist_msg);
+	    
+	if(is_random_turn)
+        {
+            std::cout<<"----Random turn-----"<<std::endl;
+            ros::Duration(0.4).sleep(); //keep turning for 0.4 sec
+            is_random_turn = false;
+        }
 
         loop_rate.sleep();
     }
